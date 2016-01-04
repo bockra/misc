@@ -8,8 +8,10 @@
 
 to=$1
 text=$2
+log=~/translate.log
 
+echo "---\n${text}" >> $log
 link='https://translate.yandex.net/api/v1.5/tr.json/translate?key='
 key='-- key from http://api.yandex.ru/key/keyslist.xml --'
 
-curl -s "$link$key&lang=$to&text=$text" | awk -F'"' {' print $10 '}
+curl -s "$link$key&lang=$to&text=$text" | awk -F'"' {' print $10 '} |tee -a $log
