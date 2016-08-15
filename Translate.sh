@@ -10,7 +10,7 @@ to=$1
 text=$2
 log=~/translate.log
 
-echo "---\n${text}" >> $log
+echo -e "---\n${text}" >> $log
 link='https://translate.yandex.net/api/v1.5/tr.json/translate?key='
 key='-- key from http://api.yandex.ru/key/keyslist.xml --'
 
